@@ -30,7 +30,7 @@ ENV BUILD_ENV ${BUILD_ENVIRONMENT}
 
 WORKDIR ${APP_HOME}
 
-RUN apt-get update && apt-get install --no-instal-recommends -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     libpq-dev \
     gettext \
     && apt-get purge -y --auto-remove -o APT::Autoremove::RecommendsImportant=false \
