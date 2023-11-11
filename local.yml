@@ -21,6 +21,8 @@ services:
             - mailhog
         networks:
             - authors-api-live
+        ports:
+            - "8000:8000"
 
     postgres:
         build:
