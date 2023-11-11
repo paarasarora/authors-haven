@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.11.2-bullseye
+ARG PYTHON_VERSION=3.9-slim-bullseye
 
 FROM python:${PYTHON_VERSION} as python
 
@@ -52,4 +52,4 @@ RUN chmod +x /start
 
 COPY . ${APP_HOME}
 
-ENTRYPOINT [ "/ENTRYPOINT" ]
+ENTRYPOINT [ "/entrypoint" ]
