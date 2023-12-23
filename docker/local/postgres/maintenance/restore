@@ -4,10 +4,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-workding-dir="$(dirname ${0})"
+working_dir="$(dirname ${0})"
 
 source "${working_dir}/_sourced/constants.sh"
-source "${working-dir}/_sourced/messages.sh"
+source "${working_dir}/_sourced/messages.sh"
 
 
 if [[ -z ${1+x}]]; then
