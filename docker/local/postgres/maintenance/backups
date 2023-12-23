@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+workding-dir="$(dirname ${0})"
+
+source "${working_dir}/_sourced/constants.sh"
+source "${working-dir}/_sourced/messages.sh"
+
+message_welcome "these are the backups you have got:"
+
+ls -lht "${BACKUP_DIR_PATH}"
+
