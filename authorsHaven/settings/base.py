@@ -160,6 +160,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_URLS_REGEX = r'^api/.*$'
 
+AUTH_USER_MODEL = "users.User" 
 
 LOGGING = {
     "version": 1,
