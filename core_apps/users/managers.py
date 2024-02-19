@@ -11,7 +11,7 @@ class CustomUsermanager(BaseUserManager):
         except ValidationError:
             raise ValueError(_('You must provide a valid email address'))
     
-    def create_user(self,first_name,last_name,email,password,**extra_fields):
+    def create_user(self,username,first_name,last_name,email,password,**extra_fields):
         if not first_name:
             raise ValueError(_('Users must have a first name'))
         if not last_name:
