@@ -156,7 +156,7 @@ STATICFILES_FINDERS = [
 ]
 
 MEDIA_URL = '/mediafiles/'
-MEIA_ROOT = str(ROOT_DIR / 'mediafiles')
+MEDIA_ROOT = str(ROOT_DIR / 'mediafiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
