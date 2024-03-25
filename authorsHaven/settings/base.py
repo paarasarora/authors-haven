@@ -41,6 +41,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
+    'rest_framework.authtoken',
     "django_filters",
     "django_countries",
     "phonenumber_field",
@@ -97,10 +98,21 @@ DATABASES = {
     }
 }
 
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
+
 # DATABASES = {'default':env.db("DATABASE_URL") }
 
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
     "django.contrib.auth.hashers.Argon2PasswordHasher",
     "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
