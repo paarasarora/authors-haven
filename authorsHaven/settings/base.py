@@ -50,7 +50,9 @@ THIRD_PARTY_APPS = [
     "djcelery_email",
     ]
 
-LOCAL_APPS = ["core_apps.profiles","core_apps.common","core_apps.users"]
+LOCAL_APPS = ["core_apps.profiles","core_apps.common","core_apps.users",
+              "core_apps.articles",
+              "core_apps.ratings"]
 
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -180,7 +182,7 @@ CORS_URLS_REGEX = r'^api/.*$'
 
 AUTH_USER_MODEL = "users.User" 
 
-CELERY_BROKER_URL = env("CELERY_BROKER")
+CELERY_BROKER_URL = "redis://redis:6379/0"
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
