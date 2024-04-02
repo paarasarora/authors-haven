@@ -24,7 +24,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     dislikes = serializers.ReadOnlyField(source="article_reactions.dislikes")
     tagList = TagRelatedField(many=True, required=False, source="tags")
     # comments = serializers.SerializerMethodField()
-    num_comments = serializers.SerializerMethodField()
+    # num_comments = serializers.SerializerMethodField()
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
 
@@ -65,9 +65,9 @@ class ArticleSerializer(serializers.ModelSerializer):
     #     serializer = CommentListSerializer(comments, many=True)
     #     return serializer.data
 
-    def get_num_comments(self, obj):
-        num_comments = obj.comments.all().count()
-        return num_comments
+    # def get_num_comments(self, obj):
+    #     num_comments = obj.comments.all().count()
+    #     return num_comments
 
     class Meta:
         model = Article
@@ -87,7 +87,7 @@ class ArticleSerializer(serializers.ModelSerializer):
             "num_ratings",
             "average_rating",
             "views",
-            "num_comments",
+            # "num_comments",
             # "comments",
             "created_at",
             "updated_at",

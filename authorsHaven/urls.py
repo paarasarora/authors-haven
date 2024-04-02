@@ -29,4 +29,5 @@ urlpatterns = [
     re_path('api/v1/', include('core_apps.users.urls', namespace='users')),
     path("api/v1/profiles/", include("core_apps.profiles.urls")),
     path("api/v1/articles/", include("core_apps.articles.urls")),
+    path("api/v1/ratings/", include("core_apps.ratings.urls")),
 ]
