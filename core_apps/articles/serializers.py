@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from core_apps.articles.models import Article, ArticleViews
-# from core_apps.comments.serializers import CommentListSerializer
+from core_apps.comments.serializers import CommentListSerializer
 from core_apps.ratings.serializers import RatingSerializer
 
 from .custom_tag_field import TagRelatedField
@@ -23,8 +23,8 @@ class ArticleSerializer(serializers.ModelSerializer):
     likes = serializers.ReadOnlyField(source="article_reactions.likes")
     dislikes = serializers.ReadOnlyField(source="article_reactions.dislikes")
     tagList = TagRelatedField(many=True, required=False, source="tags")
-    # comments = serializers.SerializerMethodField()
-    # num_comments = serializers.SerializerMethodField()
+    comments = serializers.SerializerMethodField()
+    num_comments = serializers.SerializerMethodField()
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
 
@@ -60,14 +60,14 @@ class ArticleSerializer(serializers.ModelSerializer):
         num_reviews = obj.article_ratings.all().count()
         return num_reviews
 
-    # def get_comments(self, obj):
-    #     comments = obj.comments.all()
-    #     serializer = CommentListSerializer(comments, many=True)
-    #     return serializer.data
+    def get_comments(self, obj):
+        comments = obj.comments.all()
+        serializer = CommentListSerializer(comments, many=True)
+        return serializer.data
 
-    # def get_num_comments(self, obj):
-    #     num_comments = obj.comments.all().count()
-    #     return num_comments
+    def get_num_comments(self, obj):
+        num_comments = obj.comments.all().count()
+        return num_comments
 
     class Meta:
         model = Article
@@ -87,8 +87,8 @@ class ArticleSerializer(serializers.ModelSerializer):
             "num_ratings",
             "average_rating",
             "views",
-            # "num_comments",
-            # "comments",
+            "num_comments",
+            "comments",
             "created_at",
             "updated_at",
         ]
