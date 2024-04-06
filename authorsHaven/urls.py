@@ -31,4 +31,5 @@ urlpatterns = [
     path("api/v1/articles/", include("core_apps.articles.urls")),
     path("api/v1/ratings/", include("core_apps.ratings.urls")),
     path("api/v1/comments/", include("core_apps.comments.urls")),
+    path("api/v1/elastic/", include("core_apps.search.urls")),
 ]

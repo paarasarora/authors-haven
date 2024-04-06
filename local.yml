@@ -1,6 +1,15 @@
 version: "3.9"
 
 services:
+    es:
+        image: elasticsearch:7.17.9
+        environment:
+            - discovery.type=single-node
+            # - cluster.name=docker-cluster
+        ports:
+            - "9200:9200"
+        networks:
+            - authors-api-live
     api:
         build:
             context: .
@@ -20,6 +29,7 @@ services:
             - postgres
             - mailhog
             - redis
+            - es
         networks:
             - authors-api-live
 
