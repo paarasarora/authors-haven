@@ -58,6 +58,9 @@ isort:
 elasticsearch:
 	docker compose -f local.yml exec python manage.py search_index --create
 
+elasticsearch-populate:
+	docker compose -f local.yml exec python manage.py search_index --populate
+
 
 
 

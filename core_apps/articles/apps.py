@@ -10,4 +10,4 @@ class ArticlesConfig(AppConfig):
     verbose_name = _("Articles")
 
     def ready(self):
-        import core_apps.articles.signals
+        import core_apps.search.signals

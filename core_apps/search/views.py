@@ -1,8 +1,7 @@
 from django_elasticsearch_dsl_drf.filter_backends import FilteringFilterBackend,IdsFilterBackend,OrderingFilterBackend,DefaultOrderingFilterBackend,SearchFilterBackend
 from django_elasticsearch_dsl_drf.viewsets import DocumentViewSet
 from .documents import ArticleDocument
-from .serializers import ArticleDocumentSerializer
-from .models import Article
+from .serializers import ArticleElasticSearchSerializer
 from rest_framework import permissions
 
 
@@ -10,7 +9,7 @@ from rest_framework import permissions
 
 class ArticleElasticSearchView(DocumentViewSet):
     document = ArticleDocument
-    serializer_class = ArticleDocumentSerializer
+    serializer_class = ArticleElasticSearchSerializer
     lookup_field = "id"
     permission_classes = [permissions.AllowAny]
 

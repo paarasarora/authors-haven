@@ -1,6 +1,6 @@
 from django_elasticsearch_dsl_drf.serializers import DocumentSerializer
 from .documents import ArticleDocument
-from .models import Article
+from core_apps.articles.models import Article
 
 class ArticleElasticSearchSerializer(DocumentSerializer):
     class Meta:
