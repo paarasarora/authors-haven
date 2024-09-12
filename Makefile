@@ -61,8 +61,8 @@ elasticsearch:
 elasticsearch-populate:
 	docker compose -f local.yml exec python manage.py search_index --populate
 
-make pytest
-	docker compose -f local.yml run --rm api pytest -p no:warnings --cov=.-v
+# make pytest
+# 	docker compose -f local.yml run --rm api pytest -p no:warnings --cov=.-v
 
 
 
