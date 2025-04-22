@@ -2,7 +2,7 @@ build:
 	docker compose -f local.yml up --build -d --remove-orphans
 
 up:
-	docker compose -f local.yml -d
+	docker compose -f local.yml up -d
 
 down:
 	docker compose -f local.yml down
@@ -55,7 +55,14 @@ isort-diff:
 isort:
 	docker compose -f local.yml exec api isort . --skip venv --skip migrations
 
-	
+elasticsearch:
+	docker compose -f local.yml exec python manage.py search_index --create
+
+elasticsearch-populate:
+	docker compose -f local.yml exec python manage.py search_index --populate
+
+# make pytest
+# 	docker compose -f local.yml run --rm api pytest -p no:warnings --cov=.-v
 
 
 

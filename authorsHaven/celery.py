@@ -2,9 +2,8 @@ import os
 from celery import Celery
 from django.conf import settings
 
-#TODO change this in prod
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'authorsHaven.settings.local')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'authorsHaven.settings.production')
 
 app = Celery('authorsHaven')
 app.config_from_object('django.conf:settings', namespace='CELERY')
